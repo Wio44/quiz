@@ -19,15 +19,6 @@ public class Question {
         return this.question;
     }
 
-    public List<Answer> getAnswers() {
-        int order = 1;
-        for (Answer answer : answers) {
-            System.out.println(order + ".) " + answer.getOption());
-            order++;
-        }
-        return this.answers;
-    }
-
     public void addCorrectAnswer() {
         int j;
         String result = "";
