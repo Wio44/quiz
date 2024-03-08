@@ -5,10 +5,11 @@ import java.util.*;
 public class Question {
     private final String question;
     private final List<Answer> answers = new ArrayList<>();
-    private final List<String> correctAnswers = new ArrayList<>();
+    private final QuestionType type;
 
-    public Question(String question) {
+    public Question(String question, QuestionType type) {
         this.question = question;
+        this.type = type;
     }
 
     public void addAnswer(Answer answer) {
@@ -19,30 +20,21 @@ public class Question {
         return this.question;
     }
 
-    public void addCorrectAnswer() {
-        int j;
-        String result = "";
+    public int getCorrectAnswer() {
+        int result = 0;
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < answers.size(); i++) {
             if (answers.get(i).isCorrect()) {
-                j = i + 1;
-                result = String.valueOf(stringBuilder.append(j));
+                result = Integer.parseInt(String.valueOf(stringBuilder.append(i + 1)));
             }
-        }
-        this.correctAnswers.add(result);
-    }
-
-    public int getCorrectAnswers() {
-        int result = 0;
-        for (String correctAnswer : correctAnswers) {
-            result = Integer.parseInt(correctAnswer);
         }
         return result;
     }
 
     public void printQuestionAndAnswer() {
+        System.out.println();
         printCharacter();
-        System.out.println("Question " + ": " + question);
+        System.out.println("Question " + ": " + question + "(" + type.getDescription() + ")");
         printCharacter();
 
         int order = 1;
@@ -53,7 +45,7 @@ public class Question {
     }
 
     private void printCharacter() {
-        for (int i = 0; i < question.length() + 11; i++) {
+        for (int i = 0; i < question.length() + 13 + type.getDescription().length(); i++) {
             System.out.print("*");
         }
         System.out.println();

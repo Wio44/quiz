@@ -19,15 +19,15 @@ public class Main {
         while (!quizEnded) {
             for (int i = 0; i < quiz.getQuestions().size(); ) {
                 quiz.getQuestions().get(i).printQuestionAndAnswer();
-                result = quiz.getQuestions().get(i).getCorrectAnswers();
+                result = quiz.getQuestions().get(i).getCorrectAnswer();
                 try {
                     System.out.print("Enter number of answer: ");
                     userInput = scanner.nextInt();
-                        i++;
+                    i++;
 
-                        if (userInput == result) {
-                            score++;
-                        }
+                    if (userInput == result) {
+                        score++;
+                    }
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid input");
                     scanner.nextLine();
@@ -41,15 +41,15 @@ public class Main {
 
     private static Quiz getQuiz() {
         Question question1 = getQuestion1();
-        question1.addCorrectAnswer();
+        question1.getCorrectAnswer();
         Question question2 = getQuestion2();
-        question2.addCorrectAnswer();
+        question2.getCorrectAnswer();
         Question question3 = getQuestion3();
-        question3.addCorrectAnswer();
+        question3.getCorrectAnswer();
         Question question4 = getQuestion4();
-        question4.addCorrectAnswer();
+        question4.getCorrectAnswer();
         Question question5 = getQuestion5();
-        question5.addCorrectAnswer();
+        question5.getCorrectAnswer();
 
         Quiz quiz = new Quiz("Math Quiz");
         quiz.addQuestion(question1);
@@ -66,7 +66,7 @@ public class Main {
         Answer answer5_3 = new Answer("3^1", false);
         Answer answer5_4 = new Answer("7^0", true);
 
-        Question question5 = new Question("1 = ? (Question with multiple answers)");
+        Question question5 = new Question("1 = ? ", QuestionType.MULTIPLE_ANSWERS);
 
         question5.addAnswer(answer5_1);
         question5.addAnswer(answer5_2);
@@ -81,8 +81,8 @@ public class Main {
         Answer answer4_3 = new Answer("3", true);
         Answer answer4_4 = new Answer("4", false);
 
-        Question question4 = new Question("What 3 numbers result in the same answer when they are added or "
-                + "multiplied altogether? (Question with multiple answers)");
+        Question question4 = new Question("What 3 numbers result in the same answer when they are added or ",
+                QuestionType.MULTIPLE_ANSWERS);
 
         question4.addAnswer(answer4_1);
         question4.addAnswer(answer4_2);
@@ -97,8 +97,8 @@ public class Main {
         Answer answer3_3 = new Answer("3000", false);
         Answer answer3_4 = new Answer("2000", false);
 
-        Question question3 = new Question("From the number 0 to the number 1000, the letter A appears only in?  "
-                + "(Question with single answer)");
+        Question question3 = new Question("From the number 0 to the number 1000, the letter A appears only in? ",
+                QuestionType.SINGLE_ANSWER);
 
         question3.addAnswer(answer3_1);
         question3.addAnswer(answer3_2);
@@ -113,8 +113,7 @@ public class Main {
         Answer answer2_3 = new Answer("101", false);
         Answer answer2_4 = new Answer("110", false);
 
-        Question question2 = new Question("123+4-5+67-89 = ? (Question with single answer "
-                + "(Question with single answer)");
+        Question question2 = new Question("123+4-5+67-89 = ? ", QuestionType.SINGLE_ANSWER);
 
         question2.addAnswer(answer2_1);
         question2.addAnswer(answer2_2);
@@ -129,8 +128,8 @@ public class Main {
         Answer answer1_3 = new Answer("3", false);
         Answer answer1_4 = new Answer("1", false);
 
-        Question question1 = new Question("What is the highest common factor of the numbers 30 and 132? "
-                + "(Question with single answer)");
+        Question question1 = new Question("What is the highest common factor of the numbers 30 and 132? ",
+                QuestionType.SINGLE_ANSWER);
         question1.addAnswer(answer1_1);
         question1.addAnswer(answer1_2);
         question1.addAnswer(answer1_3);

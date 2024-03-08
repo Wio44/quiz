@@ -16,9 +16,9 @@ public class Quiz {
         System.out.println("+---------------------------------------------------------------------------------------------------+");
         System.out.println("|                              Welcome in quiz - " + getName() + "                                          |");
         System.out.println("+---------------------------------------------------------------------------------------------------+");
-        System.out.println("\nThis quiz has 5 questions. Enter your choice (answer numbers from 1 to 4).");
-        System.out.println("For a question with multiple answers, write together a combination of correct answers:");
-        System.out.println("\t12,123,1234, etc...\n");
+        System.out.println("\n\t\t\tThis quiz has 5 questions. Enter your choice (answer numbers from 1 to 4).");
+        System.out.println("\t\tFor a question with multiple answers, write together a combination of correct answers:");
+        System.out.println("\t\t\t\t12,123,1234, etc...");
     }
 
     public void addQuestion(Question question) {
