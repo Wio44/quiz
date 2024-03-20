@@ -1,8 +1,8 @@
 package sk.wio.quiz;
 
 public enum QuestionType {
-    SINGLE_ANSWER("Question with single answer"),
-    MULTIPLE_ANSWERS("Question with multiple answers");
+    SINGLE_ANSWER("(Question with single answer)"),
+    MULTIPLE_ANSWERS("(Question with multiple answers)");
 
     private final String description;
 

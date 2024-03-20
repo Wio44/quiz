@@ -34,7 +34,7 @@ public class Question {
     public void printQuestionAndAnswer() {
         System.out.println();
         printCharacter();
-        System.out.println("Question " + ": " + question + "(" + type.getDescription() + ")");
+        System.out.println("Question " + ": " + question + type.getDescription());
         printCharacter();
 
         int order = 1;
@@ -45,7 +45,7 @@ public class Question {
     }
 
     private void printCharacter() {
-        for (int i = 0; i < question.length() + 13 + type.getDescription().length(); i++) {
+        for (int i = 0; i < question.length() + 11 + type.getDescription().length(); i++) {
             System.out.print("*");
         }
         System.out.println();
